@@ -96,14 +96,27 @@
               "content": [
                 "URL",
                 ["https://expo.dev/accounts/vivopoint"],
+                "Projects URL",
+                ["https://expo.dev/accounts/vivopoint/projects"],
+                "Secrets Management URL",
+                ["https://expo.dev/accounts/vivopoint/projects/vivopoint/secrets"],
                 "Relevant Projects",
-                ["VivoPoint (prod)", "VivoPoint dev", "VivoPoint uat"],
+                ["VivoPoint (prod)",["Production app version"],
+                 "VivoPoint dev", ["Development app version"],
+                 "VivoPoint uat",["UAT app version"]
+                ],
                 "Project Secrets required by CICD",
-                ["APPLE_APP_ID",["App ID configured in Apple Store"],"BRANCH_NAME",["GitHub branch configured for this project"],"REACT_APP_FULLSTORY_ANALYTICS",["Is Fullstory enabled - Yes or No"],"REACT_APP_GQL_URL",["GraphQL endpoint configured for this project"],"REACT_APP_REALM",["Is Mongo Realm enabled - true or false"],"REACT_APP_REST_URL",["The REST URL endpoint for the project"],"REALM_APP_ID",["Mongo Realm APP Identifier"],"SENTRY_DSN",["Sentry DSN configured for this project"],"X_PLAYGROUND_KEY",["Header value used for interacting with GraphQL"],"Secrets Management",
-                ["https://expo.dev/accounts/vivopoint/projects/vivopoint/secrets"]
+                ["APPLE_APP_ID",["App ID configured in Apple Store"],"BRANCH_NAME",["GitHub branch configured for this project"],"REACT_APP_FULLSTORY_ANALYTICS",["Is Fullstory enabled - Yes or No"],"REACT_APP_GQL_URL",["GraphQL endpoint configured for this project"],"REACT_APP_REALM",["Is Mongo Realm enabled - true or false"],"REACT_APP_REST_URL",["The REST URL endpoint for the project"],"REALM_APP_ID",["Mongo Realm APP Identifier"],"SENTRY_DSN",["Sentry DSN configured for this project"],"X_PLAYGROUND_KEY",["Header value used for interacting with GraphQL"]
                 ]
               ]
 
+            },
+            {
+              "title": "Confluence Links",
+              "content": [
+                "Expo Application Services (EAS)",
+                [ "https://vivopoint.atlassian.net/wiki/spaces/NE/pages/50790418/Expo+Application+Services+EAS"]
+              ]
             }
           ]
         },
@@ -151,10 +164,10 @@
                 ["https://appstoreconnect.apple.com/apps"],
                 "Relevant Projects",
                 [
-                  "VivoPoint (prod)",
-                  "vivodev (dev)",
-                  "vivotest (uat)",
-                  "vivoacc (acceptance?)"
+                  "VivoPoint",["Production version"],
+                  "vivodev",["Development version for developers"],
+                  "vivotest",["UAT version for UAT testers"],
+                  "vivoacc",["Unknown usage"]
                 ]
               ]
             },
@@ -169,7 +182,10 @@
               "title": "Confluence Links",
               "content": [
                 "TestFlight Deploy and PlayStore Deploy",
-                [ "https://vivopoint.atlassian.net/wiki/spaces/NE/pages/44367873/Testflight+Deploy+and+PlayStore+Deploy"]
+                [ "https://vivopoint.atlassian.net/wiki/spaces/NE/pages/44367873/Testflight+Deploy+and+PlayStore+Deploy"],
+                "Mobile Build System CI/CD Spike",
+                [ "https://vivopoint.atlassian.net/wiki/spaces/NE/pages/2360245/Mobile+Build+System+and+CI+CD+Spike+draft"],
+                ""
               ]
             }
           ]
@@ -232,10 +248,10 @@
               "content": [
                 "URL",
                 [
-                  "https://play.google.com/console/u/2/developers/4689998108462725311/app-list"
+                  "https://play.google.com/console/u/2/developers/4689998108462725311/app-list?pli=1"
                 ],
                 "Relevant Projects",
-                ["VivoPoint (prod)", "VivoPoint dev", "VivoPoint uat"]
+                ["VivoPoint",["Production version"], "VivoPoint dev",["Development version"], "VivoPoint uat",["UAT version"]]
               ]
             },
             {
@@ -303,32 +319,39 @@
             {
               "title": "Project Details",
               "content": [
-                "URL",
-                [
-                  "https://play.google.com/console/u/2/developers/4689998108462725311/app-list"
-                ],
+                "Database Deployments URL",[
+                  "https://cloud.mongodb.com/v2/62d90c2e9b2ba0297ff8159f#/overview" ],
+                "Realm URL",[
+                  "https://realm.mongodb.com/groups/62d90c2e9b2ba0297ff8159f/apps" ],  
                 "Database Deployments",
                 [
                   "lowervivodb",
                   [
-                    "vivo_dev - (dev)",
-                    "vivo_staging - (staging)",
-                    "vivo_testing - (uat)",
-                    "regression_testing_vivo - (*unknown purpose)",
-                    "test - (*unknown purpose)",
-                    "vivo - (*unknown purpose)",
-                    "vivo_acceptance - (*unknown purpose)"
+                    "vivo_dev",["dev graphql data"],
+                    "vivo_staging ",["staging graphql data"],
+                    "vivo_testing",["uat graphql data"],
+                    "regression_testing_vivo",
+                    "test",
+                    "vivo",
+                    "vivo_acceptance"
                   ],
                   "sandboxdb",
                   [
-                    "vivo - (*unknown purpose)",
-                    "vivo_backup_script - (*unknown purpose)",
-                    "vivo_dev - (*unknown purpose)",
-                    "vivo_prod_testing - (*unknown purpose)",
-                    "vivo_staging - (*unknown purpose)"
+                    "vivo",["sandbox graphql data"],
+                    "vivo_backup_script",
+                    "vivo_dev",
+                    "vivo_prod_testing",
+                    "vivo_staging"
                   ],
                   "vivodb",
-                  ["test - (*unknown purpose)", "vivo - (prod)"]
+                  ["test", "vivo",["prod graphql data"]]
+                ],
+                "Realm Apps",
+                [
+                  "ngv-expo-app-production",["Realm App ID",["ngv-expo-app-production-zsumg"],"URL",["https://realm.mongodb.com/groups/62d90c2e9b2ba0297ff8159f/apps/642769f9b44c27d7dc0b4994/dashboard"]],
+                  "ngv-expo-app-testing",["Realm App ID",["ngv-expo-app-testing-gfgfh"],"URL",["https://realm.mongodb.com/groups/62d90c2e9b2ba0297ff8159f/apps/64d113755fa50261cd148ae1/dashboard"]],
+                  "ngv-expo-app-sandbox",["Realm App ID",["ngv-expo-app-sandbox-vatue"],"URL",["https://realm.mongodb.com/groups/62d90c2e9b2ba0297ff8159f/apps/6425f56964cc93e960e81bd2/dashboard"]],
+                  "ngv-expo-app-dev",["Realm App ID",["ngv-expo-app-dev-yoyqi"],"URL",["https://realm.mongodb.com/groups/62d90c2e9b2ba0297ff8159f/apps/642726820b448446ff50136c/dashboard"]]
                 ]
               ]
             },
