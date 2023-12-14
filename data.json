@@ -349,10 +349,10 @@
             {
               "title": "Costs & Fees",
               "content": [
-                "Free Tier: MongoDB Atlas offers a free tier, which is often suitable for small-scale applications, development, and testing. If your database is on this tier and fits within the free tier limitations (like storage and compute resources), there will be no ongoing costs.",
-                "Paid Plans: For paid plans, the cost is typically based on the resources you provision, such as storage, memory, data transfer, and backup storage. Even if there is no activity. Consider if removing the database instances no longer being used would reduce or remove costs.",
-                "Pausing Clusters: MongoDB allows pausing clusters. When paused, storage costs may still be incurred (but reduced), and compute charges are typically halted. This feature can be useful for reducing costs while frozen.",
-                "Monitoring and Other Features: Costs may also be associated with additional features like enhanced monitoring, dedicated support, or security features, depending on your subscription."
+                "Free Tier", ["MongoDB Atlas offers a free tier, which is often suitable for small-scale applications, development, and testing. If your database is on this tier and fits within the free tier limitations (like storage and compute resources), there will be no ongoing costs."],
+                "Paid Plans", ["For paid plans, the cost is typically based on the resources you provision, such as storage, memory, data transfer, and backup storage. Even if there is no activity. Consider if removing the database instances no longer being used would reduce or remove costs."],
+                "Pausing Clusters", ["MongoDB allows pausing clusters. When paused, storage costs may still be incurred (but reduced), and compute charges are typically halted. This feature can be useful for reducing costs while frozen.",
+                "Monitoring and Other Features: Costs may also be associated with additional features like enhanced monitoring, dedicated support, or security features, depending on your subscription."]
               ]
             }
           ]
@@ -472,6 +472,13 @@
                 "APP Repository Variables",
                 ["EXPO_PROJECTNAME","EXPO_USERNAME"]
 
+              ]
+            },
+            {
+              "title": "Confluence Links",
+              "content": [
+                "GitHub for development",
+                [ "https://vivopoint.atlassian.net/wiki/spaces/NE/pages/2556185/Git+for+development"]
               ]
             }
           ]
