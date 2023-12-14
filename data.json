@@ -1,0 +1,413 @@
+{
+  "title": "VivoAquatics NextGen Mobile Platform Suspension Plan",
+  "top_sections": [
+    {
+      "title": "Introduction",
+      "sections": [
+        {
+          "title": "Purpose of the Document",
+          "content": [
+            "This document is designed to meticulously guide the temporary suspension of the VivoAquatics Next Generation Mobile Platform. Its primary aim is to ensure a smooth and organized transition into this hiatus, effectively minimizing operational risks and safeguarding all critical components of the project. This plan addresses various technical and managerial aspects, from software development to stakeholder communication, ensuring comprehensive coverage of all necessary suspension activities."
+          ]
+        },
+        {
+          "title": "Overview of the Project",
+          "content": [
+            "VivoAquatics Next Generation Mobile Platform: An advanced mobile solution designed to enhance aquatic management and chemical control systems."
+          ]
+        },
+        {
+          "title": "Current Stage",
+          "content": [
+            "The platform is currently in the final stages of alpha development, ready for Beta testing. ."
+          ]
+        },
+        {
+          "title": "Challenges and Opportunities",
+          "content": [
+            "The decision to temporarily suspend the project arises from delays in the production timeline. The primary component preventing moving forward at this time being a lack of integration with the core environment."
+          ]
+        },
+        {
+          "title": "Looking Forward",
+          "content": [
+            "The suspension plan is devised with a forward-looking approach, considering the eventual resumption of the project. It includes detailed strategies for maintaining the platform's core components during the hiatus and a robust resumption plan to seamlessly transition back into full-scale development and deployment."
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Primary Application Components",
+      "sections": [
+        {
+          "title": "Expo Platform",
+          "content": [
+            "Expo is an open-source platform for making universal native apps for Android, iOS, and the web with JavaScript and React. It simplifies the development process by enabling developers to build, deploy, and quickly iterate on iOS and Android apps from the same codebase."
+          ]
+        },
+        {
+          "title": "Apple iOS & TestFlight",
+          "content": [
+            "iOS is the operating system that runs on Apple's mobile devices, such as iPhones and iPads. TestFlight is an online service for over-the-air installation and testing of mobile applications, provided by Apple. It allows developers to send beta builds of their iOS apps to testers and receive feedback before the apps are released on the App Store."
+          ]
+        },
+        {
+          "title": "Android & Play Store",
+          "content": [
+            "Android is a mobile operating system developed by Google, designed primarily for touchscreen mobile devices such as smartphones and tablets. The Google Play Store is the official app store for Android devices, providing a platform for users to download apps and games and for developers to distribute and monetize their Android applications."
+          ]
+        },
+        {
+          "title": "Mongo DB",
+          "content": [
+            "MongoDB is a popular, open-source NoSQL database that uses a document-oriented data model and a non-structured query language. It's known for its scalability, flexibility, and ability to handle large volumes of data and complex queries, making it a suitable choice for a wide range of applications. "
+          ]
+        },
+        {
+          "title": "GitHub",
+          "content": [
+            "GitHub is a web-based version-control and collaboration platform for software developers. It allows individuals and teams to track changes in code, collaborate on software projects, and host their source code repositories. GitHub also provides access control, task management, bug tracking, and feature request functionalities.s"
+          ]
+        }
+      ]
+    }
+  ],
+  "parts": [
+    {
+      "title": "Expo Platform",
+      "sections": [
+        {
+          "title": "Current State Assessment",
+          "sections": [
+            {
+              "title": "Project Status",
+              "content": [
+                "In its current state, three projects have been built to support Android and iOS builds and submissions to their respective platforms. Production, development and testing. Builds, updates and submissions to Apple and Android are automated from GitHub CICD workflows."
+              ]
+            },
+            {
+              "title": "Project Details",
+              "content": [
+                "URL",
+                ["https://expo.dev/accounts/vivopoint"],
+                "Relevant Projects",
+                ["VivoPoint (prod)", "VivoPoint dev", "VivoPoint uat"],
+                "Project Secrets required by CICD. Values for each environment will be provided securely. These should be kept with the project, stored securely, and provided to developers when project development resumes.",
+                ["image:../path/to/image"]
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Suspension Steps",
+          "sections": [
+            {
+              "title": "Code Repository",
+              "content": [
+                "Application code is maintained in GitHub (see part 5: GitHub). No further action is required."
+              ]
+            },
+            {
+              "title": "Build Processes",
+              "content": [
+                "There are currently no scheduled builds occurring without code being committed and pulled to the respective branches.  No further action is required."
+              ]
+            },
+            {
+              "title": "User Cleanup",
+              "content": ["All old and unnecessary users have been removed."]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Apple Store & TestFlight",
+      "sections": [
+        {
+          "title": "Account",
+          "sections": [
+            {
+              "title": "Project Status",
+              "content": [
+                "In its current state, four projects have been created to support iOS Apple TestFlight. No App Store builds have been created."
+              ]
+            },
+            {
+              "title": "Project Details",
+              "content": [
+                "URL",
+                ["https://appstoreconnect.apple.com/apps"],
+                "Relevant Projects",
+                [
+                  "VivoPoint (prod)",
+                  "vivodev (dev)",
+                  "vivotest (uat)",
+                  "vivoacc (acceptance?)"
+                ]
+              ]
+            },
+            {
+              "title": "Account Owner",
+              "content": [
+                "Current account owner for Apple Store",
+                ["willan@vivoaquatics.com"]
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Suspension Steps",
+          "sections": [
+            {
+              "title": "Costs & Fees",
+              "content": [
+                "Apple Developer Program has an annual fee. Not renewing the membership would remove Vivo apps from the App Store and revoke access to TestFlight. Business should decide whether to renew or not."
+              ]
+            },
+            {
+              "title": "Tester Removal",
+              "content": [
+                "Test Users who will not be testing in the future need to be removed from all projects."
+              ]
+            },
+            {
+              "title": "Inactive App Removal",
+              "content": [
+                "Apps distributed through TestFlight will automatically expire after a certain period, typically 90 days. Once expired, testers can no longer use the build for testing. A new build would be required."
+              ]
+            },
+            {
+              "title": "Test Flight",
+              "content": ["No further action necessary."]
+            },
+            {
+              "title": "App Store Presence",
+              "content": [
+                "Decide whether to keep TestFlight builds active. No production app store projects have been deployed. Therefore, no further action is necessary."
+              ]
+            },
+            {
+              "title": "Builds Deactivation",
+              "content": [
+                "Consider disabling builds to prevent access while frozen. Builds are only available through Test Flight."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Android Play Store",
+      "sections": [
+        {
+          "title": "Account",
+          "sections": [
+            {
+              "title": "Project Status",
+              "content": [
+                "In its current state, four projects have been created to support iOS Apple TestFlight. No App Store builds have been created."
+              ]
+            },
+            {
+              "title": "Project Details",
+              "content": [
+                "URL",
+                [
+                  "https://play.google.com/console/u/2/developers/4689998108462725311/app-list"
+                ],
+                "Relevant Projects",
+                ["VivoPoint (prod)", "VivoPoint dev", "VivoPoint uat"]
+              ]
+            },
+            {
+              "title": "Account Owner",
+              "content": [
+                "Current account owner for Google Play",
+                [
+                  "dcanora@vivoaquatics.com",
+                  "** This can only be changed by re-enabling the dcanora account, use it to verify CAPTCHA login to Google, login to dcanora@vivoaquatics.com and transfer ownership of the account to another email, which also will need to be verified."
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Suspension Steps",
+          "sections": [
+            {
+              "title": "Costs & Fees",
+              "content": [
+                "Once you have paid the one-time registration fee for a Google Play Developer account, there are no ongoing or recurring fees, even if you have no activity on the account. This means you won't incur any additional charges from Google just for having the account open, regardless of app activity or sales."
+              ]
+            },
+            {
+              "title": "Tester Removal",
+              "content": [
+                "Test Users who will not be testing in the future need to be removed from all projects."
+              ]
+            },
+            {
+              "title": "Inactive Apps",
+              "content": [
+                "While there's no fee for inactivity, Google occasionally cleans up the Play Store to remove apps that have been inactive for a long time or don’t meet certain standards, so it's good to keep your apps updated."
+              ]
+            },
+            {
+              "title": "Builds Deactivation",
+              "content": [
+                "Consider disabling builds to prevent access while frozen. Google will not deactivate builds automatically."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Mongo DB",
+      "sections": [
+        {
+          "title": "Account",
+          "sections": [
+            {
+              "title": "Project Status",
+              "content": [
+                "Currently, three database deployments exist in Mongo DB for the project. Two are currently used for dev, uat and sandbox. One is used for production."
+              ]
+            },
+            {
+              "title": "Project Details",
+              "content": [
+                "URL",
+                [
+                  "https://play.google.com/console/u/2/developers/4689998108462725311/app-list"
+                ],
+                "Database Deployments",
+                [
+                  "lowervivodb",
+                  [
+                    "vivo_dev - (dev)",
+                    "vivo_staging - (staging)",
+                    "vivo_testing - (uat)",
+                    "regression_testing_vivo - (*unknown purpose)",
+                    "test - (*unknown purpose)",
+                    "vivo - (*unknown purpose)",
+                    "vivo_acceptance - (*unknown purpose)"
+                  ],
+                  "sandboxdb",
+                  [
+                    "vivo - (*unknown purpose)",
+                    "vivo_backup_script - (*unknown purpose)",
+                    "vivo_dev - (*unknown purpose)",
+                    "vivo_prod_testing - (*unknown purpose)",
+                    "vivo_staging - (*unknown purpose)"
+                  ],
+                  "vivodb",
+                  ["test - (*unknown purpose)", "vivo - (prod)"]
+                ]
+              ]
+            },
+            {
+              "title": "Account Owner",
+              "content": [
+                "Current account owners",
+                [
+                  "mmoen@vivoaquatics.com",
+                  "josh@seud.io",
+                  "dwalker@vivoaquatics.com"
+                ]
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Suspension Steps",
+          "sections": [
+            {
+              "title": "Costs & Fees",
+              "content": [
+                "Free Tier: MongoDB Atlas offers a free tier, which is often suitable for small-scale applications, development, and testing. If your database is on this tier and fits within the free tier limitations (like storage and compute resources), there will be no ongoing costs.",
+                "Paid Plans: For paid plans, the cost is typically based on the resources you provision, such as storage, memory, data transfer, and backup storage. Even if there is no activity. Consider if removing the database instances no longer being used would reduce or remove costs.",
+                "Pausing Clusters: MongoDB allows pausing clusters. When paused, storage costs may still be incurred (but reduced), and compute charges are typically halted. This feature can be useful for reducing costs while frozen.",
+                "Monitoring and Other Features: Costs may also be associated with additional features like enhanced monitoring, dedicated support, or security features, depending on your subscription."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "AWS Kubernetes",
+      "sections": [
+        {
+          "title": "Account",
+          "sections": [
+            {
+              "title": "Project Status",
+              "content": [
+                "Currently, two kubernetes clusters are maintained for the project. One for production, the other for all lower environments."
+              ]
+            },
+            {
+              "title": "Project Details",
+              "content": [
+                "AWS Account ID",
+                [ "641455028409" ],
+                "Clusters",
+                [
+                  "production",
+                  [
+                    "URL",
+                    [
+                      "https://us-east-2.console.aws.amazon.com/eks/home?region=us-east-2#/clusters/prod-eks-1QCkzNTW"
+                    ],
+                    "Cluster ARN",
+                    [
+                      "arn:aws:eks:us-east-2:641455028409:cluster/prod-eks-1QCkzNTW"
+                    ],
+                    "Version",
+                    [ "1.24", "Needs to be upgraded to 1.25+ by January 2024."]
+                  ],
+                  "sandbox",
+                  [
+                    "URL",
+                    [
+                      "https://us-east-1.console.aws.amazon.com/eks/home?region=us-east-1#/clusters/sandbox-eks-8LzYIKFI"
+                    ],
+                    "Cluster ARN",
+                    [
+                      "arn:aws:eks:us-east-1:641455028409:cluster/sandbox-eks-8LzYIKFI"
+                    ],
+                    "Version",
+                    [ "1.23", "Needs to be upgraded to 1.25+ by January 2024."]
+                  ]
+                ]
+              ]
+            },
+            {
+              "title": "Account Owner",
+              "content": [
+                "AWS is used for core as well as NextGen. For NextGen, the Kubernetes clusters were created using a specific user created to execute Terraform configurations. This user should be used when interacting with clusters using kubectl.",
+                "User ID",
+                ["tf_user"],
+                "User ARN",
+                ["arn:aws:iam::641455028409:user/tf_user"],
+                "Access Key and Secret",
+                ["Will provide for hand-off."]
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Suspension Steps",
+          "sections": [
+            {
+              "title": "Costs & Fees",
+              "content": [ "Placeholder" ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

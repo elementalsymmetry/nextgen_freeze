@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VivoAquatics NextGen Mobile Platform Suspension Plan</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flowbite@1.6.0/dist/flowbite.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+   
+        body.print-layout {
+                margin: 0 auto;
+                padding: 0;
+                width: 9in; /* Set the width to 9 inches for a portrait layout */
+                height: 11in; /* Set the height to 11 inches for a portrait layout */
+            }
+    
+        .dark body {
+            background-color: #253149;
+            color: #fff;
+        }
+        .toggle:checked + .toggle-label .toggle-dot {
+            transform: translateX(100%);
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>    
+</head>
+<body class="bg-gray-100 dark:bg-gray-800">
+
+    <div id="title" >
+    </div>
+
+    <div id="index" class="container mx-auto">
+        <div class="p-8 mb-8 mt-8 border border-blue-300 rounded-md shadow-lg bg-white dark:bg-gray-900">
+            <h2 class="text-2xl font-bold ml-4 mb-3">Index</h2>
+            <ul id="indexList" class="list-disc pl-5">
+            </ul>
+        </div>
+    </div>
+
+    <div class="absolute top-0 left-0 p-4 space-x-4 flex items-center">
+        <!-- Print Layout Toggle -->
+        <label for="printLayout" class="inline-flex relative items-center cursor-pointer">
+            <input type="checkbox" id="printLayout" class="sr-only peer" />
+            <div class="w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:bg-gray-700 dark:border-gray-600"></div>
+            <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">Print</span>
+        </label>
+    
+        <!-- Dark Theme Toggle -->
+        <label for="darkTheme" class="inline-flex relative items-center cursor-pointer">
+            <input type="checkbox" id="darkTheme" class="sr-only peer" />
+            <div class="w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:bg-gray-700 dark:border-gray-600"></div>
+            <span class="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">Dark</span>
+        </label>
+    </div>
+    
+
+    <div class="container mx-auto" id="content">
+    </div>
+
+    <script type="text/javascript">
+       
+       function applyPrintLayout(isPrintLayout) {
+        if (isPrintLayout) {
+            bodyElement.classList.add('print-layout');
+        } else {
+            bodyElement.classList.remove('print-layout');
+        }
+    }
+        // Function to set a cookie
+        function setCookie(name, value, days) {
+            let expires = "";
+            if (days) {
+                let date = new Date();
+                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                expires = "; expires=" + date.toUTCString();
+            }
+            document.cookie = name + "=" + (value || "") + expires + "; path=/";
+        }
+
+        // Function to get a cookie
+        function getCookie(name) {
+            let nameEQ = name + "=";
+            let ca = document.cookie.split(';');
+            for(let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+                if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+            }
+            return null;
+        }
+        function toggleSwitch(checkbox) {
+            checkbox.nextElementSibling.children[1].classList.toggle('transform', checkbox.checked);
+        }
+
+        const htmlElement = document.documentElement; // Select the <html> element
+        const bodyElement = document.body;
+
+        const printLayoutCheckbox = document.getElementById('printLayout');
+        if (printLayoutCheckbox) {
+            printLayoutCheckbox.addEventListener('change', function () {
+                setCookie('printLayout', this.checked, 7);
+                applyPrintLayout(this.checked);
+            });
+        }
+
+        const darkThemeCheckbox = document.getElementById('darkTheme');
+        
+        if (darkThemeCheckbox) {
+            darkThemeCheckbox.addEventListener('change', function () {
+                setCookie('darkTheme', this.checked, 7);
+                htmlElement.classList.toggle('dark', this.checked);
+            });
+        }
+        function renderList(items, isNested = false) {
+        if (!Array.isArray(items)) return `<p class="my-2 text-base text-gray-800 dark:text-gray-200">${items}</p>`;
+
+            const listItems = items.map(item => {
+                if (Array.isArray(item)) {
+                    return `<li class="${isNested ? 'ml-6 text-red-600 dark:text-red-300' : 'text-green-600 dark:text-green-300'}">${renderList(item, true)}</li>`;
+                } else {
+                    // Check if item is a URL
+                    const isUrl = item.startsWith("http");
+                    return `<li class="list-disc text-base ${isNested ? 'text-red-600 dark:text-red-300' : 'text-green-600 dark:text-green-300'}">
+                                ${isUrl ? `<a href="${item}" target="_blank" rel="noopener noreferrer" class="hover:text-blue-600 dark:hover:text-blue-500">${item}</a>` : item}
+                            </li>`;
+                }
+            }).join('');
+
+            return `<ul class="my-2 ${isNested ? 'list-none' : 'list-disc pl-6'}">${listItems}</ul>`;
+        }
+
+
+
+
+        // Function to recursively render sections with varied font sizes and styling
+        function renderSections(sections) {
+            if (!sections || !Array.isArray(sections)) return '';
+
+            return sections.map(section => {
+                const sectionTitle = section.title || 'No Title';
+                let contentHtml = '';
+
+                if (Array.isArray(section.content)) {
+                    for (let i = 0; i < section.content.length; i++) {
+                        if (Array.isArray(section.content[i])) {
+                            contentHtml += `<p class="text-base my-2">${section.content[i - 1]}</p>`;
+                            contentHtml += renderList(section.content[i]);
+                        } else if (!Array.isArray(section.content[i + 1])) {
+                            contentHtml += `<p class="text-base my-2">${section.content[i]}</p>`;
+                        }
+                    }
+                }
+
+                const subSectionsHtml = section.sections ? renderSections(section.sections) : '';
+
+                return `
+                    <div class='mt-6'>
+                        <h3 class='text-lg font-semibold mb-2 text-blue-600'>${sectionTitle}</h3>
+                        ${contentHtml}
+                        ${subSectionsHtml}
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function renderSectionContent(section, index) {
+            return `
+                <section id="${section.title.toLowerCase().split(' ').join('-')}" class='py-8 px-4 my-4 bg-white dark:bg-gray-900 shadow-md rounded-md'>
+                    <div class='px-4 py-2 flex items-center'>
+                        <a href="#title" class="text-blue-600 hover:text-blue-800 mr-2">
+                            <i class="fas fa-arrow-up"></i>
+                        </a>
+                        <h2 class='text-xl font-bold text-blue-800 dark:text-blue-300'>${index !== undefined ? `Part ${index + 1}: ` : ''}${section.title}</h2>
+                    </div>
+                    <div class='px-4 py-2'>${renderSections(section.sections)}</div>
+                </section>
+            `;
+        }
+
+        function renderTopSections(topSections) {
+            return topSections.map(section => renderSectionContent(section)).join('');
+        }
+
+        function renderParts(parts) {
+            return parts.map((part, index) => renderSectionContent(part, index)).join('');
+        }
+                // Similar changes for renderParts function
+
+
+
+        async function fetchContent() {
+            try {
+                const response = await fetch('./data.json');
+                data = await response.json();
+                return data;
+            } catch (error) {
+                console.error("Error fetching JSON data:", error);
+            }
+        }
+
+        fetchContent().then((data) => {
+            if (data) {
+                const indexList = document.getElementById('indexList');
+                // Add top sections to the index
+                data.top_sections.forEach(section => {
+                    const listItem = document.createElement('li');
+                    listItem.innerHTML = `<a href="#${section.title.toLowerCase().split(' ').join('-')}" class="text-blue-600 hover:text-blue-800">${section.title}</a>`;
+                    indexList.appendChild(listItem);
+                });
+
+                // Create an ordered list for parts with list style
+                const partsList = document.createElement('ol');
+                partsList.className = 'list-decimal'; // Tailwind class for decimal list style
+
+                // Add parts to the index as numbered items
+                data.parts.forEach((part, index) => {
+                    const listItem = document.createElement('li');
+                    listItem.innerHTML = `<a href="#${part.title.toLowerCase().split(' ').join('-')}" class="text-blue-600 hover:text-blue-800">Part ${index + 1}: ${part.title}</a>`;
+                    partsList.appendChild(listItem);
+                });
+                const partsHeader = document.createElement('div');
+                partsHeader.classList.add('mt-2');
+                indexList.appendChild(partsHeader);
+                indexList.appendChild(partsList);
+
+                // Render the content
+                document.getElementById('title').innerHTML = `<h1 class='text-3xl font-bold text-center '>${data.title}</h1>`;
+                document.getElementById('content').innerHTML = `
+                    ${renderTopSections(data.top_sections)}
+                    ${renderParts(data.parts)}
+                `;
+            }
+        });
+
+        // document.getElementById('content').innerHTML = `
+        //     <h1 class='text-3xl font-bold text-center mb-6'>${data.title}</h1>
+        //     ${renderTopSections(data.top_sections)}
+        //     ${renderParts(data.parts)}
+        // `;
+
+        document.addEventListener('DOMContentLoaded', function() {
+            let darkThemePreference = getCookie('darkTheme');
+            if (darkThemePreference !== null) {
+                darkThemeCheckbox.checked = (darkThemePreference === 'true');
+                htmlElement.classList.toggle('dark', darkThemeCheckbox.checked);
+            }
+            let printLayoutPreference = getCookie('printLayout');
+            const isPrintLayout = printLayoutPreference === 'true';
+            applyPrintLayout(isPrintLayout);
+            printLayoutCheckbox.checked = isPrintLayout;
+        });
+    </script>
+
+</body>
+</html>
