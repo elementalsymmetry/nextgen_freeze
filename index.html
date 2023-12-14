@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flowbite@1.6.0/dist/flowbite.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
-         
         body.print-layout {
                 margin: auto;
                 width: 9in; /* Set the width to 9 inches for a portrait layout */
@@ -45,6 +44,25 @@
 
         li {
             margin-left: 1em; /* Additional margin for nested items */
+        }
+
+        ul, li {
+            max-width: 100%; /* Constrain width */
+            box-sizing: border-box; /* Include padding and border in the element's width */
+            word-break: break-word; /* Allow words to break and wrap */
+            overflow-wrap: break-word; /* Break overly long words */
+        }
+
+        @media print {
+            body.print-layout {
+                width: 9in;
+                height: 11in;
+            }
+
+            ul, li {
+                width: 100%; /* Ensure list items do not exceed the body width */
+                word-wrap: break-word; /* Break words to prevent overflow */
+            }
         }
      </style>    
 </head>
@@ -240,7 +258,7 @@
 
                 // Create an ordered list for parts with list style
                 const partsList = document.createElement('ol');
-                partsList.className = 'list-decimal'; // Tailwind class for decimal list style
+                partsList.className = 'list-disc'; // Tailwind class for decimal list style
 
                 // Add parts to the index as numbered items
                 data.parts.forEach((part, index) => {

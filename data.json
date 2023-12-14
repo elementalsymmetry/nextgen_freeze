@@ -64,9 +64,15 @@
           ]
         },
         {
+          "title": "AWS Kubernetes",
+          "content": [
+            "Server clusters hosting the GraphQL data services reside in Amazon Web Services in Kubernetes Clusters. These clusters were created using Terraform, and are managed by AWS, with auto-scaling and auto-recovery."
+          ]
+        },
+        {
           "title": "GitHub",
           "content": [
-            "GitHub is a web-based version-control and collaboration platform for software developers. It allows individuals and teams to track changes in code, collaborate on software projects, and host their source code repositories. GitHub also provides access control, task management, bug tracking, and feature request functionalities.s"
+            "GitHub is a web-based version-control and collaboration platform for software developers. It allows individuals and teams to track changes in code, collaborate on software projects, and host their source code repositories. GitHub also provides access control, task management, bug tracking, and feature request functionalities."
           ]
         }
       ]
@@ -92,9 +98,12 @@
                 ["https://expo.dev/accounts/vivopoint"],
                 "Relevant Projects",
                 ["VivoPoint (prod)", "VivoPoint dev", "VivoPoint uat"],
-                "Project Secrets required by CICD. Values for each environment will be provided securely. These should be kept with the project, stored securely, and provided to developers when project development resumes.",
-                ["image:../path/to/image"]
+                "Project Secrets required by CICD",
+                ["APPLE_APP_ID",["App ID configured in Apple Store"],"BRANCH_NAME",["GitHub branch configured for this project"],"REACT_APP_FULLSTORY_ANALYTICS",["Is Fullstory enabled - Yes or No"],"REACT_APP_GQL_URL",["GraphQL endpoint configured for this project"],"REACT_APP_REALM",["Is Mongo Realm enabled - true or false"],"REACT_APP_REST_URL",["The REST URL endpoint for the project"],"REALM_APP_ID",["Mongo Realm APP Identifier"],"SENTRY_DSN",["Sentry DSN configured for this project"],"X_PLAYGROUND_KEY",["Header value used for interacting with GraphQL"],"Secrets Management",
+                ["https://expo.dev/accounts/vivopoint/projects/vivopoint/secrets"]
+                ]
               ]
+
             }
           ]
         },
@@ -152,6 +161,13 @@
               "content": [
                 "Current account owner for Apple Store",
                 ["willan@vivoaquatics.com"]
+              ]
+            },
+            {
+              "title": "Confluence Links",
+              "content": [
+                "TestFlight Deploy and PlayStore Deploy",
+                [ "https://vivopoint.atlassian.net/wiki/spaces/NE/pages/44367873/Testflight+Deploy+and+PlayStore+Deploy"]
               ]
             }
           ]
@@ -228,6 +244,13 @@
                   "dcanora@vivoaquatics.com",
                   "** This can only be changed by re-enabling the dcanora account, use it to verify CAPTCHA login to Google, login to dcanora@vivoaquatics.com and transfer ownership of the account to another email, which also will need to be verified."
                 ]
+              ]
+            },
+            {
+              "title": "Confluence Links",
+              "content": [
+                "TestFlight Deploy and PlayStore Deploy",
+                [ "https://vivopoint.atlassian.net/wiki/spaces/NE/pages/44367873/Testflight+Deploy+and+PlayStore+Deploy"]
               ]
             }
           ]
@@ -387,13 +410,80 @@
             {
               "title": "Account Owner",
               "content": [
-                "AWS is used for core as well as NextGen. For NextGen, the Kubernetes clusters were created using a specific user created to execute Terraform configurations. This user should be used when interacting with clusters using kubectl.",
+                "Terraform IAM User",
+                ["AWS is used for core as well as NextGen. For NextGen, the Kubernetes clusters were created using a specific user created to execute and manage Terraform configurations. This user should be used when interacting with clusters using kubectl."],
                 "User ID",
                 ["tf_user"],
                 "User ARN",
                 ["arn:aws:iam::641455028409:user/tf_user"],
                 "Access Key and Secret",
                 ["Will provide for hand-off."]
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Suspension Steps",
+          "sections": [
+            {
+              "title": "Costs & Fees",
+              "content": [ "Placeholder" ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "GitHub",
+      "sections": [
+        {
+          "title": "Account",
+          "sections": [
+            {
+              "title": "Project Status",
+              "content": [
+                "Currently, two kubernetes clusters are maintained for the project. One for production, the other for all lower environments."
+              ]
+            },
+            {
+              "title": "Project Details",
+              "content": [
+                "AWS Account ID",
+                [ "641455028409" ],
+                "Clusters",
+                [
+                  "production",
+                  [
+                    "URL",
+                    [
+                      "https://us-east-2.console.aws.amazon.com/eks/home?region=us-east-2#/clusters/prod-eks-1QCkzNTW"
+                    ],
+                    "Cluster ARN",
+                    [
+                      "arn:aws:eks:us-east-2:641455028409:cluster/prod-eks-1QCkzNTW"
+                    ],
+                    "Version",
+                    [ "1.24", "Needs to be upgraded to 1.25+ by January 2024."]
+                  ],
+                  "sandbox",
+                  [
+                    "URL",
+                    [
+                      "https://us-east-1.console.aws.amazon.com/eks/home?region=us-east-1#/clusters/sandbox-eks-8LzYIKFI"
+                    ],
+                    "Cluster ARN",
+                    [
+                      "arn:aws:eks:us-east-1:641455028409:cluster/sandbox-eks-8LzYIKFI"
+                    ],
+                    "Version",
+                    [ "1.23", "Needs to be upgraded to 1.25+ by January 2024."]
+                  ]
+                ]
+              ]
+            },
+            {
+              "title": "Account Owner",
+              "content": [
               ]
             }
           ]
