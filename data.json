@@ -113,7 +113,9 @@
             {
               "title": "Code Repository",
               "content": [
-                "Application code is maintained in GitHub (see part 5: GitHub). No further action is required."
+                "Application code is maintained in GitHub (see part 5: GitHub).",
+                "Build, update and distribution automation is user-activity-triggered.",
+                "No further action is required."
               ]
             },
             {

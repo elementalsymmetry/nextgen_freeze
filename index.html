@@ -158,7 +158,7 @@
         function renderList(items, level = 0) {
             if (!Array.isArray(items)) return `<p class="my-2 text-lg text-gray-800 dark:text-gray-200">${items}</p>`;
 
-            const colorClasses = ['pl-6 text-blue-600', 'pl-2 text-green-600', 'text-red-600'];
+            const colorClasses = ['pl-10 text-blue-600', 'pl-4 text-green-600', 'text-red-600'];
             const darkColorClasses = ['dark:text-blue-300', 'dark:text-green-300', 'dark:text-red-300'];
 
             const listItems = items.map(item => {
@@ -192,10 +192,10 @@
                 if (Array.isArray(section.content)) {
                     for (let i = 0; i < section.content.length; i++) {
                         if (Array.isArray(section.content[i])) {
-                            contentHtml += `<p class="text-base my-2">${section.content[i - 1]}</p>`;
+                            contentHtml += `<p class="pl-4 text-base my-2">${section.content[i - 1]}</p>`;
                             contentHtml += renderList(section.content[i]);
                         } else if (!Array.isArray(section.content[i + 1])) {
-                            contentHtml += `<p class="text-base my-2">${section.content[i]}</p>`;
+                            contentHtml += `<p class="pl-4 text-base my-2">${section.content[i]}</p>`;
                         }
                     }
                 }
