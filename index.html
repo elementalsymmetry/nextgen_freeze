@@ -10,8 +10,7 @@
     <style>
    
         body.print-layout {
-                margin: 0 auto;
-                padding: 0;
+                margin: auto;
                 width: 9in; /* Set the width to 9 inches for a portrait layout */
                 height: 11in; /* Set the height to 11 inches for a portrait layout */
             }
@@ -30,7 +29,7 @@
 </head>
 <body class="bg-gray-100 dark:bg-gray-800">
 
-    <div id="title" >
+    <div id="title" class="mt-8" >
     </div>
 
     <div id="index" class="container mx-auto">
@@ -115,23 +114,33 @@
                 htmlElement.classList.toggle('dark', this.checked);
             });
         }
-        function renderList(items, isNested = false) {
-        if (!Array.isArray(items)) return `<p class="my-2 text-base text-gray-800 dark:text-gray-200">${items}</p>`;
 
-            const listItems = items.map(item => {
-                if (Array.isArray(item)) {
-                    return `<li class="${isNested ? 'ml-6 text-red-600 dark:text-red-300' : 'text-green-600 dark:text-green-300'}">${renderList(item, true)}</li>`;
-                } else {
-                    // Check if item is a URL
-                    const isUrl = item.startsWith("http");
-                    return `<li class="list-disc text-base ${isNested ? 'text-red-600 dark:text-red-300' : 'text-green-600 dark:text-green-300'}">
-                                ${isUrl ? `<a href="${item}" target="_blank" rel="noopener noreferrer" class="hover:text-blue-600 dark:hover:text-blue-500">${item}</a>` : item}
-                            </li>`;
-                }
-            }).join('');
 
-            return `<ul class="my-2 ${isNested ? 'list-none' : 'list-disc pl-6'}">${listItems}</ul>`;
+        function renderList(items, level = 0) {
+    if (!Array.isArray(items)) return `<p class="my-2 text-base text-gray-800 dark:text-gray-200">${items}</p>`;
+
+    const icons = ['fa-circle', 'fa-dot-circle', 'fa-caret-right'];
+    const textColors = ['text-green-600', 'text-blue-600', 'text-red-600'];
+    const darkTextColors = ['dark:text-green-300', 'dark:text-blue-300', 'dark:text-red-300'];
+
+    const listItems = items.map(item => {
+        const isUrl = typeof item === 'string' && item.startsWith("http");
+        const itemContent = isUrl 
+            ? `<a href="${item}" target="_blank" rel="noopener noreferrer" class="hover:text-blue-600 dark:hover:text-blue-500">${item}</a>` 
+            : item;
+
+        const iconClass = level < icons.length ? icons[level] : icons[icons.length - 1];
+
+        if (Array.isArray(item)) {
+            return `<li class="ml-${level * 4}"><i class="fas ${iconClass} ${textColors[level % textColors.length]} ${darkTextColors[level % darkTextColors.length]} mr-2"></i>${renderList(item, level + 1)}</li>`;
+        } else {
+            return `<li class="ml-${level * 4}"><i class="fas ${iconClass} ${textColors[level % textColors.length]} ${darkTextColors[level % darkTextColors.length]} mr-2 invisible"></i>${itemContent}</li>`;
         }
+    }).join('');
+
+    return `<ul class="list-none pl-0">${listItems}</ul>`;
+}
+
 
 
 
