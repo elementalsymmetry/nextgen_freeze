@@ -181,11 +181,12 @@
 
 
         // Function to recursively render sections with varied font sizes and styling
-        function renderSections(sections) {
+        function renderSections(sections, isTopLevel = false) {
             if (!sections || !Array.isArray(sections)) return '';
 
             return sections.map(section => {
                 const sectionTitle = section.title || 'No Title';
+                const titleClass = isTopLevel ? 'text-2xl' : 'text-lg'; // Larger size for top-level sections
                 let contentHtml = '';
 
                 if (Array.isArray(section.content)) {
@@ -194,16 +195,16 @@
                             contentHtml += `<p class="text-base my-2">${section.content[i - 1]}</p>`;
                             contentHtml += renderList(section.content[i]);
                         } else if (!Array.isArray(section.content[i + 1])) {
-                            contentHtml += `<p class="text-base my-2 text-bold">${section.content[i]}</p>`;
+                            contentHtml += `<p class="text-base my-2">${section.content[i]}</p>`;
                         }
                     }
                 }
 
-                const subSectionsHtml = section.sections ? renderSections(section.sections) : '';
+                const subSectionsHtml = section.sections ? renderSections(section.sections, false) : '';
 
                 return `
                     <div class='mt-6'>
-                        <h3 class='text-lg font-semibold mb-2 text-blue-600'>${sectionTitle}</h3>
+                        <h3 class='${titleClass} font-semibold mb-2 text-blue-600'>${sectionTitle}</h3>
                         ${contentHtml}
                         ${subSectionsHtml}
                     </div>
@@ -213,14 +214,14 @@
 
         function renderSectionContent(section, index) {
             return `
-                <section id="${section.title.toLowerCase().split(' ').join('-')}" class='text-lg py-8 px-4 my-4 bg-white dark:bg-gray-900 shadow-md rounded-md'>
+                <section id="${section.title.toLowerCase().split(' ').join('-')}" class='py-8 px-4 my-4 bg-white dark:bg-gray-900 shadow-md rounded-md'>
                     <div class='px-4 py-2 flex items-center'>
                         <a href="#top" class="text-blue-600 hover:text-blue-800 mr-2">
                             <i class="fas fa-arrow-up"></i>
                         </a>
                         <h2 class='text-2xl font-bold text-blue-800 dark:text-blue-300'>${index !== undefined ? `Part ${index + 1}: ` : ''}${section.title}</h2>
                     </div>
-                    <div class='px-4 py-2'>${renderSections(section.sections)}</div>
+                    <div class='px-4 py-2'>${renderSections(section.sections, true)}</div>
                 </section>
             `;
         }
@@ -250,6 +251,7 @@
             if (data) {
                 const indexList = document.getElementById('indexList');
                 // Add top sections to the index
+
                 data.top_sections.forEach(section => {
                     const listItem = document.createElement('li');
                     listItem.innerHTML = `<a href="#${section.title.toLowerCase().split(' ').join('-')}" class="text-blue-600 hover:text-blue-800">${section.title}</a>`;

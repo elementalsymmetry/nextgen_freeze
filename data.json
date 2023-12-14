@@ -376,6 +376,8 @@
               "content": [
                 "AWS Account ID",
                 [ "641455028409" ],
+                "AWS Account Login",
+                ["https://us-east-1.console.aws.amazon.com/console/home"],
                 "Clusters",
                 [
                   "production",
@@ -440,61 +442,45 @@
           "title": "Account",
           "sections": [
             {
-              "title": "Project Status",
+              "title": "Organization",
               "content": [
-                "Currently, two kubernetes clusters are maintained for the project. One for production, the other for all lower environments."
+                "URL",
+                ["https://github.com/vivoaquatics"]
               ]
             },
             {
               "title": "Project Details",
               "content": [
-                "AWS Account ID",
-                [ "641455028409" ],
-                "Clusters",
-                [
-                  "production",
-                  [
-                    "URL",
-                    [
-                      "https://us-east-2.console.aws.amazon.com/eks/home?region=us-east-2#/clusters/prod-eks-1QCkzNTW"
-                    ],
-                    "Cluster ARN",
-                    [
-                      "arn:aws:eks:us-east-2:641455028409:cluster/prod-eks-1QCkzNTW"
-                    ],
-                    "Version",
-                    [ "1.24", "Needs to be upgraded to 1.25+ by January 2024."]
-                  ],
-                  "sandbox",
-                  [
-                    "URL",
-                    [
-                      "https://us-east-1.console.aws.amazon.com/eks/home?region=us-east-1#/clusters/sandbox-eks-8LzYIKFI"
-                    ],
-                    "Cluster ARN",
-                    [
-                      "arn:aws:eks:us-east-1:641455028409:cluster/sandbox-eks-8LzYIKFI"
-                    ],
-                    "Version",
-                    [ "1.23", "Needs to be upgraded to 1.25+ by January 2024."]
-                  ]
-                ]
-              ]
-            },
-            {
-              "title": "Account Owner",
-              "content": [
+                "GraphQL API",
+                ["https://github.com/vivoaquatics/nextgen-vivopoint-api"],
+                "Mobile APP",
+                ["https://github.com/vivoaquatics/nextgen-vivopoint-app"],
+                "API Environment Secrets",
+                ["AUD",["Mongo Realm ID"],"DB_HOST",["Mongo DB Endpoint"],"JWT_SECRET",["JSON Web Token Secret"]],
+                "API Repository Secrets",
+                ["AWS_ACCESS_KEY_ID","AWS_S3_ACCESS_KEY","AWS_S3_BUCKET_NAME","AWS_S3_KEY_SECRET","AWS_SECRET_ACCESS_KEY","INTERNAL_API_TOKEN","JWT_EXPIRATION_TIME_DEV","JWT_EXPIRATION_TIME_STAGING","KUBE_CONFIG_DEV","KUBE_CONFIG_NEW","NEW_RELIC_LICENSE_KEY","SEND_GRID_API_KEY","SEND_GRID_TEMPLATE_2F_AUTH","SEND_GRID_TEMPLATE_INVITATION","SEND_GRID_TEMPLATE_PASSWORD_RESET","SEND_GRID_TEMPLATE_PROPERTY_INVITATION","SEND_GRID_TEMPLATE_WELCOME","SENTRY_DSN","SENTRY_ENVIRONMENT_DEV","SENTRY_ENVIRONMENT_SANDBOX","SENTRY_ENVIRONMENT_STAGING","X_PLAYGROUND_KEY"],
+                "API Environment Variables",
+                ["AWS_REGION","CLUSTER_NAME","CRON_NEXTJS_EXECUTION_TIME","NAME","NAMESPACE"],
+                "API Repository Variables",
+                ["AWS_REGION","AWS_S3_REGION","CLUSTER_NAME","CRON_NEXTJS_EXECUTION_TIME","NEW_RELIC_APP_NAME","NEW_RELIC_LOG_LEVEL","SEND_GRID_AUTHORIZED_EMAIL"],
+                "APP Environment Secrets",
+                ["REACT_APP_JWT_SECRET"],
+                "APP Repository Secrets",
+                ["EAS_BUILD_USERNAME","EXPO_APPLE_APP_SPECIFIC_PASSWORD","EXPO_PROJECTNAME","EXPO_TOKEN","EXPO_TOKEN_NEW","EXPO_USERNAME","X_PLAYGROUND_KEY"],
+                "APP Environment Variables",
+                ["ENVIRONMENT","EXPO_PROJECTNAME","REACT_APP_FULLSTORY_ANALYTICS","REACT_APP_GQL_URL","REACT_APP_REALM","REACT_APP_REST_URL","REALM_APP_ID","SENTRY_DSN"],
+                "APP Repository Variables",
+                ["EXPO_PROJECTNAME","EXPO_USERNAME"]
+
               ]
             }
           ]
         },
         {
           "title": "Suspension Steps",
-          "sections": [
-            {
-              "title": "Costs & Fees",
-              "content": [ "Placeholder" ]
-            }
+          "content": [
+            "N/A",
+            ["No suspension steps required for GitHub.", "No scheduled processes are running.", "All automation is triggered by user activities." ]
           ]
         }
       ]
