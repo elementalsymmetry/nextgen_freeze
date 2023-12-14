@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en" id="top">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,24 +8,45 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flowbite@1.6.0/dist/flowbite.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
-   
+         
         body.print-layout {
                 margin: auto;
                 width: 9in; /* Set the width to 9 inches for a portrait layout */
                 height: 11in; /* Set the height to 11 inches for a portrait layout */
-            }
-    
+        }
+
+        body, .dark body {
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        a, .dark a {
+            transition: color 0.3s;
+        }
+
+        button, .dark button {
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+
         .dark body {
             background-color: #253149;
             color: #fff;
         }
+
         .toggle:checked + .toggle-label .toggle-dot {
             transform: translateX(100%);
         }
         html {
             scroll-behavior: smooth;
         }
-    </style>    
+
+        ul {
+            padding-left: 1em; /* Padding for the bullets */
+        }
+
+        li {
+            margin-left: 1em; /* Additional margin for nested items */
+        }
+     </style>    
 </head>
 <body class="bg-gray-100 dark:bg-gray-800">
 
@@ -117,30 +138,26 @@
 
 
         function renderList(items, level = 0) {
-    if (!Array.isArray(items)) return `<p class="my-2 text-base text-gray-800 dark:text-gray-200">${items}</p>`;
+            if (!Array.isArray(items)) return `<p class="my-2 text-lg text-gray-800 dark:text-gray-200">${items}</p>`;
 
-    const icons = ['fa-circle', 'fa-dot-circle', 'fa-caret-right'];
-    const textColors = ['text-green-600', 'text-blue-600', 'text-red-600'];
-    const darkTextColors = ['dark:text-green-300', 'dark:text-blue-300', 'dark:text-red-300'];
+            const colorClasses = ['pl-6 text-blue-600', 'pl-2 text-green-600', 'text-red-600'];
+            const darkColorClasses = ['dark:text-blue-300', 'dark:text-green-300', 'dark:text-red-300'];
 
-    const listItems = items.map(item => {
-        const isUrl = typeof item === 'string' && item.startsWith("http");
-        const itemContent = isUrl 
-            ? `<a href="${item}" target="_blank" rel="noopener noreferrer" class="hover:text-blue-600 dark:hover:text-blue-500">${item}</a>` 
-            : item;
+            const listItems = items.map(item => {
+                const colorClass = colorClasses[level % colorClasses.length];
+                const darkColorClass = darkColorClasses[level % darkColorClasses.length];
+                const marginLeftClass = `ml-${level * 4}`;
 
-        const iconClass = level < icons.length ? icons[level] : icons[icons.length - 1];
+                if (Array.isArray(item)) {
+                    return `<li class="${marginLeftClass} ${colorClass} ${darkColorClass}">${renderList(item, level + 1)}</li>`;
+                } else {
+                    const isUrl = typeof item === 'string' && item.startsWith("http");
+                    return `<li class="${marginLeftClass} ${colorClass} ${darkColorClass}">${isUrl ? `<a href="${item}" target="_blank" rel="noopener noreferrer">${item}</a>` : item}</li>`;
+                }
+            }).join('');
 
-        if (Array.isArray(item)) {
-            return `<li class="ml-${level * 4}"><i class="fas ${iconClass} ${textColors[level % textColors.length]} ${darkTextColors[level % darkTextColors.length]} mr-2"></i>${renderList(item, level + 1)}</li>`;
-        } else {
-            return `<li class="ml-${level * 4}"><i class="fas ${iconClass} ${textColors[level % textColors.length]} ${darkTextColors[level % darkTextColors.length]} mr-2 invisible"></i>${itemContent}</li>`;
+            return `<ul class="list-none pl-0 text-lg">${listItems}</ul>`;
         }
-    }).join('');
-
-    return `<ul class="list-none pl-0">${listItems}</ul>`;
-}
-
 
 
 
@@ -159,7 +176,7 @@
                             contentHtml += `<p class="text-base my-2">${section.content[i - 1]}</p>`;
                             contentHtml += renderList(section.content[i]);
                         } else if (!Array.isArray(section.content[i + 1])) {
-                            contentHtml += `<p class="text-base my-2">${section.content[i]}</p>`;
+                            contentHtml += `<p class="text-base my-2 text-bold">${section.content[i]}</p>`;
                         }
                     }
                 }
@@ -178,12 +195,12 @@
 
         function renderSectionContent(section, index) {
             return `
-                <section id="${section.title.toLowerCase().split(' ').join('-')}" class='py-8 px-4 my-4 bg-white dark:bg-gray-900 shadow-md rounded-md'>
+                <section id="${section.title.toLowerCase().split(' ').join('-')}" class='text-lg py-8 px-4 my-4 bg-white dark:bg-gray-900 shadow-md rounded-md'>
                     <div class='px-4 py-2 flex items-center'>
-                        <a href="#title" class="text-blue-600 hover:text-blue-800 mr-2">
+                        <a href="#top" class="text-blue-600 hover:text-blue-800 mr-2">
                             <i class="fas fa-arrow-up"></i>
                         </a>
-                        <h2 class='text-xl font-bold text-blue-800 dark:text-blue-300'>${index !== undefined ? `Part ${index + 1}: ` : ''}${section.title}</h2>
+                        <h2 class='text-2xl font-bold text-blue-800 dark:text-blue-300'>${index !== undefined ? `Part ${index + 1}: ` : ''}${section.title}</h2>
                     </div>
                     <div class='px-4 py-2'>${renderSections(section.sections)}</div>
                 </section>
