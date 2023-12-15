@@ -7,7 +7,7 @@
         {
           "title": "Purpose of the Document",
           "content": [
-            "This document is designed to meticulously guide the temporary suspension of the VivoAquatics Next Generation Mobile Platform. Its primary aim is to ensure a smooth and organized transition into this hiatus, effectively minimizing operational risks and safeguarding all critical components of the project. This plan addresses various technical and managerial aspects, from software development to stakeholder communication, ensuring comprehensive coverage of all necessary suspension activities."
+            "This document is designed to guide the temporary suspension of the VivoAquatics Next Generation Mobile Platform. Its primary aim is to ensure a smooth and organized transition into this hiatus, effectively minimizing operational risks and safeguarding all critical components of the project."
           ]
         },
         {
@@ -19,19 +19,14 @@
         {
           "title": "Current Stage",
           "content": [
-            "The platform is currently in the final stages of alpha development, ready for Beta testing. ."
-          ]
-        },
-        {
-          "title": "Challenges and Opportunities",
-          "content": [
-            "The decision to temporarily suspend the project arises from delays in the production timeline. The primary component preventing moving forward at this time being a lack of integration with the core environment."
+            "The platform is currently in the final stages of Alpha development, ready for Beta testing.",
+            "Integration with the Core Vivo application has not been designed."
           ]
         },
         {
           "title": "Looking Forward",
           "content": [
-            "The suspension plan is devised with a forward-looking approach, considering the eventual resumption of the project. It includes detailed strategies for maintaining the platform's core components during the hiatus and a robust resumption plan to seamlessly transition back into full-scale development and deployment."
+            "The suspension plan is devised with a forward-looking approach, considering the eventual resumption of the project. It includes details needed for maintaining the platform's core components during the hiatus and to seamlessly transition back into development and deployment."
           ]
         }
       ]
@@ -101,7 +96,7 @@
                 "Secrets Management URL",
                 ["https://expo.dev/accounts/vivopoint/projects/vivopoint/secrets"],
                 "Relevant Projects",
-                ["VivoPoint (prod)",["Production app version"],
+                ["VivoPoint",["Production app version"],
                  "VivoPoint dev", ["Development app version"],
                  "VivoPoint uat",["UAT app version"]
                 ],
